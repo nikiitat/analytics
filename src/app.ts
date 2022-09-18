@@ -4,7 +4,7 @@ import morgan from "morgan";
 import "./db/mongoDB";
 
 import errorHandler from "./middleware/errorHandler";
-import analyticsRouter from "./routes/analyticsRouter";
+import pageViewsRouter from "./routes/pageViewsRouter";
 
 const app = express();
 
@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === "development") {
   );
 }
 
-app.use("/analytics", analyticsRouter);
+app.use("/analytics/pageViews", pageViewsRouter);
 
 app.use(errorHandler);
 
