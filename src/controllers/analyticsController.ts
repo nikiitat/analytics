@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import moment from "moment";
-import PageViews, { IPageView } from "../models/pageViews";
+import PageViews from "../models/pageViews";
 
 const getPageViewsById = async ({ params }: Request, res: Response) => {
   const view = await PageViews.findById({ _id: params.id }).lean();
@@ -8,7 +7,10 @@ const getPageViewsById = async ({ params }: Request, res: Response) => {
   res.send({ view });
 };
 
-const getPageViewsByCountryOrBrowser = async ({ query }: Request, res: Response) => {
+const getPageViewsByCountryOrBrowser = async (
+  { query }: Request,
+  res: Response
+) => {
   if (query.browser) {
     const view = await PageViews.find({ browser: query.browser }).lean();
 
