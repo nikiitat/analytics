@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "fa605901-492b-42ed-a2a8-22feb736feac",
+		"name": "analytics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "pageViews By id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/analytics/pageViews/632755270060da3eab047aaa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"analytics",
+						"pageViews",
+						"632755270060da3eab047aaa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pageViews By browser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/analytics/pageViews?browser=Chrome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"analytics",
+						"pageViews"
+					],
+					"query": [
+						{
+							"key": "browser",
+							"value": "Chrome"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pageViews By country",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/analytics/pageViews?country=DE,USA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"analytics",
+						"pageViews"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "DE,USA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pageViews By date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/analytics/pageViews/pageActivity?startDate=2022-09-17T13:34:10.226Z&endDate=2022-09-17T17:34:20.226Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"analytics",
+						"pageViews",
+						"pageActivity"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2022-09-17T13:34:10.226Z"
+						},
+						{
+							"key": "endDate",
+							"value": "2022-09-17T17:34:20.226Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pageViews user rate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/analytics/pageViews/userRate?page=Land+page&startDate=2022-09-17T13:34:10.226Z&endDate=2022-09-17T17:34:20.226Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"analytics",
+						"pageViews",
+						"userRate"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "Land+page"
+						},
+						{
+							"key": "startDate",
+							"value": "2022-09-17T13:34:10.226Z"
+						},
+						{
+							"key": "endDate",
+							"value": "2022-09-17T17:34:20.226Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create page views",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"page\": \"Land page\",\n    \"country\": \"USA\",\n    \"browser\": \"Chrome\",\n    \"pageActivity\": {\n        \"startDate\": \"2022-09-17T16:34:13.226Z\",\n        \"endDate\": \"2022-09-17T16:35:13.226Z\"\n    },\n    \"user\": {\n        \"returnUser\": 0,\n        \"uniqueUser\": 1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/analytics/pageViews/collect",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"analytics",
+						"pageViews",
+						"collect"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
