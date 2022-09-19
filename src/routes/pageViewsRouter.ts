@@ -7,8 +7,11 @@ import {
   getPageViewsUserRate,
 } from "../controllers/analyticsController";
 import asyncHandler from "../middleware/asyncHandler";
+import auth from "../middleware/auth";
 
 const router = Router();
+
+router.use(auth)
 
 router.post("/collect", asyncHandler(postPageViews));
 
